@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${coffee.image}" class="card-img-top" alt="Coffee drink">
                 <div class="card-body">
                   <h5 class="card-title">${coffee.title}</h5>
-                  <p class="card-text">${coffee.description}</p>
-                  <p class="card-text">${coffee.ingredients}</p>
+                  <p class="card-text">Description: ${coffee.description}</p>
+                  <p class="card-text">Ingredients: ${coffee.ingredients}</p>
                   <button class="btn btn-dark btn-sm" type="button">Order Now!</button>
                 </div>
               </div>
