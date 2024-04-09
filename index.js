@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
           card.classList.add("card");
           card.style.width = "18rem";
           card.style.backgroundColor = "#352b2d";
+          //displaying the coffee drinks in cards
           card.innerHTML = `
             <p class="d-inline-flex gap-1">
             <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="false" aria-controls="collapse${index}">
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="card-body">
                   <h5 class="card-title">${coffee.title}</h5>
                   <p class="card-text">Description: ${coffee.description}</p>
-                  <p class="card-text">Ingredients: ${coffee.ingredients}</p>
+                  <p class="card-text"><b>Ingredients:</b> ${coffee.ingredients}</p>
                   <button id="order" class="btn btn-dark btn-sm" type="button">Order Now!</button>
                 </div>
               </div>
@@ -31,19 +32,34 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
           cofeeMenuContainer.appendChild(card);
 
+          // adding the order response when order button is pressed
+          const orderButtons = document.querySelectorAll('#order');
+          orderButtons.forEach((button, i) => {
+              button.addEventListener('click', () => {
+                
+                  const p = document.createElement('p');
+                  let min = Math.floor((Math.random() * 10) + 10);
+                  p.textContent = `Your Order will be ready in ${min} minutes!`;
+                  card.querySelector('.card-body').appendChild(p);
+          })
+          })
 
-          // const orderButtons = document.querySelectorAll('.order');
-          // orderButtons.forEach((button, i) => {
-          //     button.addEventListener('click', () => {
-          //         const p = document.createElement('p');
-          //         let min = Math.floor((Math.random() * 10) + 10);
-          //         p.textContent = `Your Order will be ready in ${min} minutes!`;
-          //         card.querySelector('.card-body').appendChild(p);
+          // using a mouseover event
+          orderButtons.forEach((button, i) => {
+            button.addEventListener('mouseover', () => {
+              button.style.backgroundColor = 'brown';
+              button.style.border = '1px solid black';
+            })
+          })
 
-          // })
-          // })
+          // using a mouseout event
+          orderButtons.forEach((button, i) => {
+            button.addEventListener('mouseout', () => {
+              button.style.backgroundColor = '#2e282b';
+            })
+          })
         });
-        updatePrices()
+        updatePrices() // function to update prices
       }).catch((err) => {
         console.log(err);
       });
@@ -52,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   displayCoffeeDrinks();
 
   function searchCoffeeDrinks() {
-
+// creating a search bar for finding coffee drinks based on their names
     fetch("https://api.sampleapis.com/coffee/hot")
       .then((res) => res.json())
       .then((data) => {
@@ -117,20 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
         cardBodies.forEach(cardBody => {
             const btn = cardBody.querySelector('button');
             cardBody.insertBefore(p.cloneNode(true), btn);
-        });
-//     fetch('https://api.sampleapis.com/coffee/hot', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//       },
-// body: JSON.stringify({
-//         price: prices
-//       })
-//     })
-//     .then(response => response.json())
-//     .then(data => console.log(data))
-//     .catch(err => console.log(err))
+        });   
   }
-//   updatePrices()
 });
