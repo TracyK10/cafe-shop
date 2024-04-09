@@ -86,3 +86,60 @@ form{
 #feedback{
     padding: 4em;
 }
+
+#search{
+    text-align: left;
+    padding: 4em;
+    background-color: #352b2d;
+    color: white;
+}
+
+.card-img-top{
+    object-fit: cover;
+    width: 100px;
+    height: 300px;
+
+}
+
+.footer {
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: 1.25rem;
+
+}
+
+.footer a { 
+    color: white;
+    text-decoration: none;
+}
+
+.footer__link {
+    font-weight: 900;
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+
+}
+
+.social-list__item {
+    margin: 0 .5em;
+    
+}
+
+.social-list__link {
+    padding: .5em;
+}
