@@ -28,6 +28,7 @@ header .navbar {
   max-width: 1200px;
   font-weight: 900;
   font-size: 20px;
+  overflow: hidden;
 }
 header ul {
   display: flex;
@@ -47,6 +48,9 @@ header a:hover {
 .logo {
   max-width: 100px;
   max-height: 80px;
+}
+@media screen and (max-width:600px) {
+  
 }
 
 h2 {
